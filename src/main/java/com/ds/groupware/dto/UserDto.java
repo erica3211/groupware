@@ -1,4 +1,4 @@
-package com.ds.groupware.user;
+package com.ds.groupware.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,23 +11,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor(access=AccessLevel.PUBLIC)
 public class UserDto {
-	@JsonProperty
 	private String id="";    
-	@JsonProperty
 	private String user_nm="";
-	@JsonProperty
 	private String user_eml_addr="";    
-	@JsonProperty
-	private String dept_no="";    
-	@JsonProperty
+	private int dept_no=0;    
 	private String user_telno="";    
-	@JsonProperty
 	private String user_addr="";    
-	@JsonProperty
 	private String aprv_yn="";
 	
 	
-	public UserDto(String id, String user_nm, String user_eml_addr, String dept_no, String user_telno, String user_addr,
+	public UserDto(String id, String user_nm, String user_eml_addr, int dept_no, String user_telno, String user_addr,
 			String aprv_yn) {
 		super();
 		this.id = id;
@@ -70,12 +63,12 @@ public class UserDto {
 	}
 
 
-	public String getDept_no() {
+	public int getDept_no() {
 		return dept_no;
 	}
 
 
-	public void setDept_no(String dept_no) {
+	public void setDept_no(int dept_no) {
 		this.dept_no = dept_no;
 	}
 

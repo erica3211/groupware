@@ -1,19 +1,15 @@
-package com.ds.groupware.user.controller;
+package com.ds.groupware.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.ds.groupware.user.UserDto;
-import com.ds.groupware.user.service.UserService;
+import com.ds.groupware.dto.UserDto;
+import com.ds.groupware.service.UserService;
 
 import jakarta.annotation.Resource;
 
@@ -23,21 +19,27 @@ public class UserController {
 	@Resource(name="userService")
 	UserService service;
 	
-	@GetMapping("/user/list")
-	public HashMap<String, Object> getList(UserDto dto){
-		HashMap<String, Object> resultMap = new HashMap<String, Object>();
-		
-		resultMap.put("totalCnt",service.getTotalCnt(dto));
-		resultMap.put("data",service.getList(dto));
-		
-		return resultMap;
-	}
-	
 	@RequestMapping(value = "/user/user_list")
 	public String getList(UserDto dto, Model model) {
 		List<UserDto> userlist = service.getList(dto);
+		int total = service.getTotalCnt(dto);
 		model.addAttribute("getUserList", userlist);
+		model.addAttribute("getTotalCnt", total);
+		System.out.println(total);
 		return "user_list";
+	}
+	
+	//등록 페이지로 이동
+	@RequestMapping(value = "/user/user_write")
+		String member_write() {
+			return "user_write";
+		}
+	
+	@RequestMapping(value = "/user/user_save")
+	String member_save(UserDto dto)
+	{ 
+		service.insert(dto);
+		return "redirect:/";
 	}
 	
 }

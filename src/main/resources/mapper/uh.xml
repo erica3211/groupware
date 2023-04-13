@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="UH">
+	<select id="UH_getList" parameterType="UHDto"
+	resultType="UHDto">
+	select ID, HOBBY_CD
+	from public."UH_TABLE"
+	</select>
+	
+	<select id="UH_getTotalCnt" parameterType="UHDto"
+	resultType="Integer">
+	select count(*) from public."UH_TABLE"
+	</select>
+	
+</mapper>

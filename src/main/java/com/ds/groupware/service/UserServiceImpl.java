@@ -1,11 +1,11 @@
-package com.ds.groupware.user.service;
+package com.ds.groupware.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ds.groupware.user.UserDto;
-import com.ds.groupware.user.repository.UserDao;
+import com.ds.groupware.dto.UserDto;
+import com.ds.groupware.repository.UserDao;
 
 import jakarta.annotation.Resource;
 
@@ -22,6 +22,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int getTotalCnt(UserDto dto) {
 		return dao.getTotalCnt(dto);
+	}
+
+	@Override
+	public void insert(UserDto dto) {
+		dao.insert(dto);
+		
 	}
 	
 }

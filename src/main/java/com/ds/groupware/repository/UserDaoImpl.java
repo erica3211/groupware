@@ -1,4 +1,4 @@
-package com.ds.groupware.user.repository;
+package com.ds.groupware.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ds.groupware.user.UserDto;
+import com.ds.groupware.dto.UserDto;
 
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
@@ -23,6 +23,13 @@ public class UserDaoImpl implements UserDao {
 	public int getTotalCnt(UserDto dto) {
 		return sm.selectOne("User_getTotalCnt",dto);
 	}
+
+	@Override
+	public void insert(UserDto dto) {
+		sm.insert("User_insert", dto);
+		
+	}
+	
 
 
 }

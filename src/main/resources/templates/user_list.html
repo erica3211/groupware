@@ -55,7 +55,7 @@
 			 <th>부서번호</th>
 			 <th>전화번호</th>
 			 <th>주소</th>
-			 <th>승인여부</th>
+			 <th>승인여부</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -70,7 +70,7 @@
 			</tr>
 		</tbody>
 	</table>
-		
+		<p th:each="total : ${getTotalCnt}" >데이터 개수 : <span th:text="${total}"></span></p>
 	</form>	
 </body>
 </html>

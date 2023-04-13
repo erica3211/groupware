@@ -4,17 +4,18 @@
 
 <configuration>
 
-<!--  원래 클래스명은 패키지까지 포함하기때문에 너무 길어서 짧은 
-          별명을 만들어서 접근하기 위해 기술한다  -->
 	<typeAliases> 
-		<typeAlias alias="UserDto" type="com.ds.groupware.user.UserDto"/> 	
+		<typeAlias alias="UserDto" type="com.ds.groupware.dto.UserDto"/> 	
+		<typeAlias alias="DeptDto" type="com.ds.groupware.dto.DeptDto"/> 	
+		<typeAlias alias="HobbyDto" type="com.ds.groupware.dto.HobbyDto"/> 	
+		<typeAlias alias="UHDto" type="com.ds.groupware.dto.UHDto"/> 
 	</typeAliases>
 
 	<mappers>
-	   <!--  sql 쿼리를 두는 곳  Guestbook.xml 파일을 만들어야 한다  -->
-	   <!-- src/main/resource 폴더에 두자 -->
 	  <mapper resource=	"mapper/user.xml"/>
+	  <mapper resource=	"mapper/dept.xml"/>
+	  <mapper resource=	"mapper/hobby.xml"/>
+	  <mapper resource=	"mapper/uh.xml"/>
 	</mappers>
-	
 	
 </configuration>

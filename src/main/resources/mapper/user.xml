@@ -15,4 +15,18 @@
 	select count(*) from public."USER"
 	</select>
 	
+	<select id="User_insert" parameterType="UserDto"
+	resultType="UserDto">
+	INSERT INTO public."USER"(
+	id, user_nm, user_eml_addr, dept_no, user_telno, user_addr)
+	VALUES 		( #{id}
+		, #{user_nm}
+		, #{user_eml_addr}
+		, #{dept_no}
+		, #{user_telno}
+		, #{user_addr}
+		)
+	</select>
+	
+	
 </mapper>
