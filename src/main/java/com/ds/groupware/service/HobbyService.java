@@ -6,5 +6,4 @@ import com.ds.groupware.dto.HobbyDto;
 
 public interface HobbyService {
 	List<HobbyDto> getList(HobbyDto dto);
-	int getTotalCnt(HobbyDto dto);
 }

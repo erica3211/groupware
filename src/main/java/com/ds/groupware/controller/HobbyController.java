@@ -19,10 +19,7 @@ public class HobbyController {
 	@RequestMapping(value = "/hobby/hobby_list")
 	public String getList(HobbyDto dto, Model model) {
 		List<HobbyDto> hobbylist = service.getList(dto);
-		int total = service.getTotalCnt(dto);
 		model.addAttribute("getUserList", hobbylist);
-		model.addAttribute("getTotalCnt", total);
-		System.out.println(total);
 		return "hobby_list";
 	}
 }

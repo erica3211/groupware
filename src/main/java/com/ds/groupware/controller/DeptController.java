@@ -19,10 +19,7 @@ public class DeptController {
 	@RequestMapping(value = "/dept/dept_list")
 	public String getList(DeptDto dto, Model model) {
 		List<DeptDto> deptlist = service.getList(dto);
-		int total = service.getTotalCnt(dto);
 		model.addAttribute("getUserList", deptlist);
-		model.addAttribute("getTotalCnt", total);
-		System.out.println(total);
 		return "dept_list";
 	}
 }

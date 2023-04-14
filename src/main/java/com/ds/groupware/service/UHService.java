@@ -5,6 +5,7 @@ import java.util.List;
 import com.ds.groupware.dto.UHDto;
 
 public interface UHService {
-	List<UHDto> getList(UHDto dto);
-	int getTotalCnt(UHDto dto);
+	List<UHDto> getList(UHDto uhdto);
+	int getTotalCnt(UHDto uhdto);
+	public void insert(UHDto uhdto);
 }

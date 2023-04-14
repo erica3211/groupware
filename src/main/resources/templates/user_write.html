@@ -8,7 +8,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-<form name="myform" id="myform">
+<form name="myform" id="myform" th:object="${UserDto}" method="post" th:action="@{/user/user_save}" >
+	
 		<!-- 메뉴 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
@@ -56,7 +57,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="아이디를 입력하세요"
+			    placeholder="아이디를 입력하세요" th:value="${UserDto.id}"
 			    name="id" id="id">
 			 </div>
         </td>
@@ -66,7 +67,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="이름을 입력하세요"
+			    placeholder="이름을 입력하세요" th:value="${UserDto.user_nm}"
 			    name="user_nm" id="user_nm">
 			 </div>
         </td>
@@ -76,7 +77,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="email" class="form-control" 
-			    placeholder="이메일을 입력하세요"
+			    placeholder="이메일을 입력하세요" th:value="${UserDto.user_eml_addr}"
 			    name="user_eml_addr" id="user_eml_addr">
 			 </div>
         </td>
@@ -84,11 +85,10 @@
       <tr>
         <th>부서번호</th>
         <td>
-        	 <div class="input-group">
-			    <input type="text" class="form-control" 
-			    placeholder="부서번호를 입력하세요"
-			    name="dept_no" id="dept_no">
-			 </div>
+        	 <select name="dept_nm" th:field="*{dept_no}">
+    <option th:each="dept_nm_list : ${getDeptList}" 
+        th:value="${dept_nm_list.dept_no}" th:text="${dept_nm_list.dept_nm}"></option>
+</select>
         </td>
       </tr>
       <tr>
@@ -96,7 +96,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="tel" class="form-control" 
-			    placeholder="전화번호를 입력하세요"
+			    placeholder="전화번호를 입력하세요" th:value="${UserDto.user_telno}"
 			    name="user_telno" id="user_telno">
 			 </div>
         </td>
@@ -106,18 +106,39 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="주소를 입력하세요"
+			    placeholder="주소를 입력하세요" th:value="${UserDto.user_addr}"
 			    name="user_addr" id="user_addr">
 			 </div>
         </td>
       </tr>
+      <tr>
+        <th>취미</th>
+                <td>
+  <div th:each="hobby : ${getHobbyList}" class="form-check form-check-inline">
+            <input type="checkbox" name='hobby_cd' th:value="${hobby.hobby_cd}"
+                   class="form-check-input">
+            <label 
+                   th:text="${hobby.hobby_nm}" class="form-check-label"></label>
+        </td>
+      </tr>
+            <tr>
+        <th>test</th>
+                <td>
+  성별<br>
+  <input type='checkbox' name='gender' value='female' />여성
+  <input type='checkbox' name='gender' value='male' />남성
+  <br>
+        </td>
+      </tr>
+      
     </tbody>
   </table>
  </div>
 
 
  <div class="container" style="text-align:right">
-	<button type="button" class="btn btn-primary" onclick= "goSave()">등록</button>
+	<!--<button type="button" class="btn btn-primary" onclick= "goSave()">등록</button>-->
+	<button type="submit" class="btn btn-primary">등록</button>
  </div>
 
   </form>
@@ -128,7 +149,6 @@ function goSave()
 	var frm = document.myform;
 	frm.action = "./user_save";
 	frm.submit();
-	
 }
 
 </script>

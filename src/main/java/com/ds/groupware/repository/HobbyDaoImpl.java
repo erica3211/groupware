@@ -17,9 +17,4 @@ public class HobbyDaoImpl implements HobbyDao{
 	public List<HobbyDto> getList(HobbyDto dto) {
 		return sm.selectList("Hobby_getList",dto);
 	}
-
-	@Override
-	public int getTotalCnt(HobbyDto dto) {
-		return sm.selectOne("Hobby_getTotalCnt",dto);
-	}
 }

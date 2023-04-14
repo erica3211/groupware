@@ -10,9 +10,31 @@
 	from public."UH_TABLE"
 	</select>
 	
+	<select id="UH_getIDhobbynmList" 
+	resultType="map">
+	SELECT public."UH_TABLE".id, public."HOBBY".hobby_nm
+	FROM public."UH_TABLE" 
+	INNER JOIN public."HOBBY"
+  	ON public."UH_TABLE".hobby_cd = public."HOBBY".hobby_cd
+	</select>
+	
+	<select id="UH_getNAMEhobbynmList" 
+	resultType="map">
+	SELECT public."USER".user_nm, public."HOBBY".hobby_nm
+	FROM public."USER"
+	INNER JOIN public."UH_TABLE" 
+  	ON public."USER".id = public."UH_TABLE".id
+	INNER JOIN public."HOBBY"
+  	ON public."UH_TABLE".hobby_cd = public."HOBBY".hobby_cd
+	</select>
+	
 	<select id="UH_getTotalCnt" parameterType="UHDto"
 	resultType="Integer">
 	select count(*) from public."UH_TABLE"
 	</select>
 	
+	<select id="UH_insert" parameterType="UHDto"
+	resultType="UHDto">
+	select count(*) from public."UH_TABLE"
+	</select>
 </mapper>

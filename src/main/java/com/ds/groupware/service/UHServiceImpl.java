@@ -12,15 +12,21 @@ import jakarta.annotation.Resource;
 @Service("uhService")
 public class UHServiceImpl implements UHService{
 	@Resource(name="uhDao")
-	UHDao dao;
+	UHDao uhdao;
 
 	@Override
-	public List<UHDto> getList(UHDto dto) {
-		return dao.getList(dto);
+	public List<UHDto> getList(UHDto uhdto) {
+		return uhdao.getList(uhdto);
 	}
 
 	@Override
-	public int getTotalCnt(UHDto dto) {
-		return dao.getTotalCnt(dto);
+	public int getTotalCnt(UHDto uhdto) {
+		return uhdao.getTotalCnt(uhdto);
+	}
+
+	@Override
+	public void insert(UHDto uhdto) {
+		uhdao.insert(uhdto);
+		
 	}
 }

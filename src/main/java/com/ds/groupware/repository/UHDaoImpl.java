@@ -14,13 +14,19 @@ public class UHDaoImpl implements UHDao{
 	SqlSessionTemplate sm;
 
 	@Override
-	public List<UHDto> getList(UHDto dto) {
-		return sm.selectList("UH_getList",dto);
+	public List<UHDto> getList(UHDto uhdto) {
+		return sm.selectList("UH_getList",uhdto);
 	}
 
 	@Override
-	public int getTotalCnt(UHDto dto) {
-		return sm.selectOne("UH_getTotalCnt",dto);
+	public int getTotalCnt(UHDto uhdto) {
+		return sm.selectOne("UH_getTotalCnt",uhdto);
+	}
+
+	@Override
+	public void insert(UHDto uhdto) {
+		sm.insert("UH_insert", uhdto);
+		
 	}
 	
 	

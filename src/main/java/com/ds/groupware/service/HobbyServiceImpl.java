@@ -16,14 +16,8 @@ public class HobbyServiceImpl implements HobbyService{
 
 	@Override
 	public List<HobbyDto> getList(HobbyDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getList(dto);
 	}
 
-	@Override
-	public int getTotalCnt(HobbyDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 }

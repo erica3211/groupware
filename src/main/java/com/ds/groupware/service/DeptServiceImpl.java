@@ -13,14 +13,11 @@ import jakarta.annotation.Resource;
 public class DeptServiceImpl implements DeptService {
 	@Resource(name="deptDao")
 	DeptDao dao;
+	
 	@Override
 	public List<DeptDto> getList(DeptDto dto) {
 		return dao.getList(dto);
 	}
 
-	@Override
-	public int getTotalCnt(DeptDto dto) {
-		return dao.getTotalCnt(dto);
-	}
 
 }

@@ -14,24 +14,11 @@ public class UserDto {
 	private String id="";    
 	private String user_nm="";
 	private String user_eml_addr="";    
-	private int dept_no=0;    
+	private String dept_no="";    
 	private String user_telno="";    
 	private String user_addr="";    
 	private String aprv_yn="";
 	
-	
-	public UserDto(String id, String user_nm, String user_eml_addr, int dept_no, String user_telno, String user_addr,
-			String aprv_yn) {
-		super();
-		this.id = id;
-		this.user_nm = user_nm;
-		this.user_eml_addr = user_eml_addr;
-		this.dept_no = dept_no;
-		this.user_telno = user_telno;
-		this.user_addr = user_addr;
-		this.aprv_yn = aprv_yn;
-	}
-
 
 	public String getId() {
 		return id;
@@ -63,12 +50,12 @@ public class UserDto {
 	}
 
 
-	public int getDept_no() {
+	public String getDept_no() {
 		return dept_no;
 	}
 
 
-	public void setDept_no(int dept_no) {
+	public void setDept_no(String dept_no) {
 		this.dept_no = dept_no;
 	}
 

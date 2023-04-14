@@ -6,14 +6,8 @@
 <mapper namespace="Dept">
 	<select id="Dept_getList" parameterType="DeptDto"
 	resultType="DeptDto">
-	select DEPT_NO, DEPT_NM, HQ_NM, DEPTH
+	select DEPT_NO, DEPT_NM, DEPTH
 	from public."DEPT"
 	</select>
-	
-	<select id="Dept_getTotalCnt" parameterType="DeptDto"
-	resultType="Integer">
-	select count(*) from public."DEPT"
-	</select>
-
 
 </mapper>

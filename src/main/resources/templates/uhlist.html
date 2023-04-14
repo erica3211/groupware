@@ -70,6 +70,12 @@
 				<td><span th:text="${userlist.aprv_yn}"></span></td>
 			</tr>
 		</tbody>
+		<tbody>
+			<tr th:each="uhlist : ${getUHList}">
+				<td><span th:text="${uhlist.id}"></span></td>
+				<td><span th:text="${uhlist.hobby_cd}"></span></td>
+			</tr>
+		</tbody>
 	</table>
 		<p th:each="total : ${getTotalCnt}" >데이터 개수 : <span th:text="${total}"></span></p>
 	</form>	
