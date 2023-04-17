@@ -6,8 +6,8 @@
 <mapper namespace="UH">
 	<select id="UH_getList" parameterType="UHDto"
 	resultType="UHDto">
-	select ID, HOBBY_CD
-	from public."UH_TABLE"
+	select ID, public."UH_TABLE".HOBBY_CD, public."HOBBY".HOBBY_NM
+	from public."UH_TABLE" JOIN public."HOBBY" on public."UH_TABLE".hobby_cd = public."HOBBY".hobby_cd 
 	</select>
 	
 	<select id="UH_getIDhobbynmList" 
@@ -35,6 +35,10 @@
 	
 	<select id="UH_insert" parameterType="UHDto"
 	resultType="UHDto">
-	select count(*) from public."UH_TABLE"
+	INSERT INTO public."UH_TABLE"( id, hobby_cd )
+	VALUES ( 
+		#{id}
+	  , #{hobby_cd}
+	  )
 	</select>
 </mapper>

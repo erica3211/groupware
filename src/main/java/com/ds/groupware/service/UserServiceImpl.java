@@ -29,5 +29,10 @@ public class UserServiceImpl implements UserService {
 		userDao.insert(dto);
 		
 	}
+
+	@Override
+	public UserDto getView(String user_id) {
+		return userDao.getView(user_id);
+	}
 	
 }

@@ -11,14 +11,14 @@ import lombok.Setter;
 public class UHDto {
 	private String id="";    
 	private String hobby_cd="";
+	private String hobby_nm="";
 	
-	
-	public UHDto(String id, String hobby_cd) {
-		super();
-		this.id = id;
-		this.hobby_cd = hobby_cd;
+	public String getHobby_nm() {
+		return hobby_nm;
 	}
-	
+	public void setHobby_nm(String hobby_nm) {
+		this.hobby_nm = hobby_nm;
+	}
 	public String getId() {
 		return id;
 	}

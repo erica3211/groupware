@@ -9,6 +9,7 @@
 </head>
 <body>
 <form name="myform" id="myform" th:object="${UserDto}" method="post" th:action="@{/user/user_save}" >
+
 	
 		<!-- 메뉴 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -121,15 +122,7 @@
                    th:text="${hobby.hobby_nm}" class="form-check-label"></label>
         </td>
       </tr>
-            <tr>
-        <th>test</th>
-                <td>
-  성별<br>
-  <input type='checkbox' name='gender' value='female' />여성
-  <input type='checkbox' name='gender' value='male' />남성
-  <br>
-        </td>
-      </tr>
+            
       
     </tbody>
   </table>
@@ -138,7 +131,7 @@
 
  <div class="container" style="text-align:right">
 	<!--<button type="button" class="btn btn-primary" onclick= "goSave()">등록</button>-->
-	<button type="submit" class="btn btn-primary">등록</button>
+	<button type="submit" class="btn btn-primary" >등록</button>
  </div>
 
   </form>

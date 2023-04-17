@@ -41,8 +41,7 @@
 		</nav>
 		
 		<div class="container mt-3">
-		<h3>Navbar With Dropdown</h3>
-		<p>This example adds a dropdown menu in the navbar.</p>
+		<h3>회원 목록 상세보기</h3>
 
 		<div class="input-group mt-3 mb-3">
 			<button type="button" class="btn btn-primary dropdown-toggle"
@@ -82,13 +81,68 @@
 				<td><span th:text="${userlist.user_nm}"></span></td>
 				<td><span th:text="${userlist.dept_nm}"></span></td>
 				<td><span th:text="${userlist.aprv_yn}"></span></td>
-				<td><a href="user_view.html" th:text="상세보기" th:href="@{/user/user_view/{user_id}(user_id=${userlist.id})}"></a></td>
+				<td><a th:text="상세보기" th:href="@{/user/user_view(id=${userlist.id})}"></a></td>
 			</tr>
 		</tbody>
 	</table>
 		</div>
 		<!--<p th:each="total : ${getTotalCnt}" >데이터 개수 : <span th:text="${total}"></span></p>-->
-		
+		<div class="container mt-3">
+		<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상세정보</h3>
+  <br>
+<div style="border: 1px ; float: right; width: 60%;">
+   <table class="table">
+   	<colgroup>
+   		<col width="30%">
+   		<col width="*">
+   	</colgroup>
+    <tbody>
+		  <tr>
+        <th>아이디</th>
+        <td>
+        	<span th:text="${getView.id}"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>이름</th>
+        <td>
+        	<span th:text="${getView.user_nm}"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>이메일</th>
+        <td>
+        	 <span th:text="${getView.user_eml_addr}"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>부서명</th>
+        <td>
+        	 <span th:text="${getView.dept_nm}"></span>
+        </td>
+      </tr>
+      <tr>
+        <th>전화번호</th>
+        <td>
+        	 <span th:text="${getView.user_telno}"></span>
+        </td>
+      </tr>
+            <tr>
+        <th>주소</th>
+        <td>
+        	 <span th:text="${getView.user_addr}"></span>
+        </td>
+      </tr>
+                  <tr>
+        <th>승인여부</th>
+        <td>
+        	 <span th:text="${getView.aprv_yn}"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ </div>
 		
 	</form>	
 </body>

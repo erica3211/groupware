@@ -1,6 +1,5 @@
 package com.ds.groupware.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,6 +14,19 @@ public class UserDto {
 	private String user_nm="";
 	private String user_eml_addr="";    
 	private String dept_no="";    
+	private String dept_nm="";  
+	
+	
+	public String getDept_nm() {
+		return dept_nm;
+	}
+
+
+	public void setDept_nm(String dept_nm) {
+		this.dept_nm = dept_nm;
+	}
+
+
 	private String user_telno="";    
 	private String user_addr="";    
 	private String aprv_yn="";

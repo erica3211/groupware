@@ -29,6 +29,11 @@ public class UserDaoImpl implements UserDao {
 		sm.insert("User_insert", dto);
 		
 	}
+
+	@Override
+	public UserDto getView(String user_id) {
+		return sm.selectOne("User_getView",user_id);
+	}
 	
 
 
