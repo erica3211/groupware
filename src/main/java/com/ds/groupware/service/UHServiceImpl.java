@@ -29,4 +29,9 @@ public class UHServiceImpl implements UHService{
 		uhdao.insert(uhdto);
 		
 	}
+
+	@Override
+	public List<UHDto> getList(String user_id) {
+		return uhdao.getList(user_id);
+	}
 }

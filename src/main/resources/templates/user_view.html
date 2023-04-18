@@ -9,13 +9,12 @@
 
 </head>
 <body>
-<form name="myform" id="myform">
+<form name="searchform" id="searchform">
 		<!-- 메뉴 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="/myhome2/images/img_avatar1.png" alt="Avatar Logo"
-					style="width: 40px;" class="rounded-pill">
+				<a class="navbar-brand" href="#"> 
+					
 				</a>
 
 				<button class="navbar-toggler" type="button"
@@ -39,7 +38,6 @@
 				</div>
 			</div>
 		</nav>
-		
 		<div class="container mt-3">
 		<h3>회원 목록 상세보기</h3>
 
@@ -51,13 +49,15 @@
 				<li><a class="dropdown-item" href="#">Link 2</a></li>
 				<li><a class="dropdown-item" href="#">Link 3</a></li>
 			</ul>
-			<input type="text" class="form-control" placeholder="Username">
+			<input type="text" name="searchKey" class="form-control" placeholder="Username">
 			<div class="input-group-append">
-				<button class="btn btn-primary" type="button">GO</button>
+				<button class="btn btn-primary" type="button" onclick="goSearch()">GO</button>
 			</div>
 		</div>
+</form>
+<form name="myform" id="myform">		
 
-		<div style="border: 1px solid; float: left; width: 33%;">
+		<div style="border: 1px solid; float: left; width: 38%;">
 			<table class="table">
 				<colgroup>
 					<col width="20%">
@@ -72,25 +72,27 @@
 			 <th>이름</th>
 			 <th>부서명</th>
 			 <th>승인여부</th> 
-			 <th>+</th> 
+			 <th>상세보기</th> 
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="userlist : ${getUserList}">
-				<td><span th:text="${userlist.id}"></span></td>
+				<td><span th:text="${userlist.id}" name="searchKey"></span></td>
 				<td><span th:text="${userlist.user_nm}"></span></td>
 				<td><span th:text="${userlist.dept_nm}"></span></td>
-				<td><span th:text="${userlist.aprv_yn}"></span></td>
-				<td><a th:text="상세보기" th:href="@{/user/user_view(id=${userlist.id})}"></a></td>
+				<td><span th:if="${userlist.aprv_yn == 'N'}">승인 요청</span>
+    			<span th:if="${userlist.aprv_yn == 'Y'}">승인</span></td>
+				<td><a href="user_view.html" th:text="상세보기" th:href="@{/user/user_view/{user_id}(user_id=${userlist.id})}"></a></td>
 			</tr>
 		</tbody>
 	</table>
 		</div>
 		<!--<p th:each="total : ${getTotalCnt}" >데이터 개수 : <span th:text="${total}"></span></p>-->
 		<div class="container mt-3">
-		<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상세정보</h3>
+			<br>
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상세정보</h2>
   <br>
-<div style="border: 1px ; float: right; width: 60%;">
+<div style="border: 1px ; float: right; width: 58%;">
    <table class="table">
    	<colgroup>
    		<col width="30%">
@@ -100,50 +102,103 @@
 		  <tr>
         <th>아이디</th>
         <td>
-        	<span th:text="${getView.id}"></span>
+			<div class="input-group">
+        	<input type="text" class="form-control" th:value="${getView.id}" readonly>
+			</div>
         </td>
       </tr>
       <tr>
         <th>이름</th>
         <td>
-        	<span th:text="${getView.user_nm}"></span>
+        	<input type="text" class="form-control" th:value="${getView.user_nm}" readonly>
         </td>
       </tr>
       <tr>
         <th>이메일</th>
         <td>
-        	 <span th:text="${getView.user_eml_addr}"></span>
+        	 <input type="text" class="form-control" th:value="${getView.user_eml_addr}" readonly>
         </td>
       </tr>
       <tr>
         <th>부서명</th>
         <td>
-        	 <span th:text="${getView.dept_nm}"></span>
+			<select disabled>
+    <option th:each="dept_nm_list : ${getDeptList}" 
+        th:value="${dept_nm_list.dept_no}" 
+        th:selected="${getView.dept_no} == ${dept_nm_list.dept_no}"
+        th:text="${dept_nm_list.dept_nm}"></option>
+</select>
         </td>
       </tr>
       <tr>
         <th>전화번호</th>
         <td>
-        	 <span th:text="${getView.user_telno}"></span>
+        	 <input type="text" class="form-control" th:value="${getView.user_telno}"readonly>
         </td>
       </tr>
             <tr>
         <th>주소</th>
         <td>
-        	 <span th:text="${getView.user_addr}"></span>
+        	 <input type="text" class="form-control" th:value="${getView.user_addr}"readonly>
         </td>
       </tr>
-                  <tr>
+                  
+      <tr>
+      <th>취미</th>
+      <td>
+<div th:each="hobby : ${getHobbyList}" class="form-check form-check-inline">
+            <input type="checkbox" name='hobby_cd' th:value="${hobby.hobby_cd}"
+                   class="form-check-input" th:checked="${#strings.contains(getUHlist,hobby.hobby_cd)}"checked disabled/>
+            <label 
+                   th:text="${hobby.hobby_nm}" class="form-check-label"readonly></label>
+        </td>
+      </tr>
+      <tr>
         <th>승인여부</th>
         <td>
-        	 <span th:text="${getView.aprv_yn}"></span>
+			<span th:if="${getView.aprv_yn == 'N'}">승인 요청</span>
+    		<span th:if="${getView.aprv_yn == 'Y'}">승인</span>
         </td>
       </tr>
     </tbody>
   </table>
+  
+		<div class="container" style="text-align:right">
+	<button type="button" class="btn btn-primary"onclick= "goUpdate()" >등록</button>
+	<button type="button" class="btn btn-primary"onclick= "goDelete()" >삭제</button>
+ </div>
 </div>
  </div>
 		
+		
 	</form>	
 </body>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+function goUpdate()
+{
+	var frm = document.myform;
+	const userid = /*[[${getView.id}]]*/;
+	frm.action = '/user/user_update/'+userid;
+	frm.submit();
+	alert("등록 완료");
+}
+function goDelete()
+{
+	var frm = document.myform;
+	const userid = /*[[${getView.id}]]*/;
+	frm.action = '/user/user_delete/'+userid;
+	frm.submit();
+	alert("삭제 완료");
+}
+function goSearch()
+{
+	var frm = document.myform;
+	const userid = /*[[${getView.id}]]*/;
+	frm.action = '/user/user_view/'+userid;
+	frm.submit();
+}
+/*]]>*/
+</script>
 </html>

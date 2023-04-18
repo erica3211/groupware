@@ -10,12 +10,9 @@
 	from public."UH_TABLE" JOIN public."HOBBY" on public."UH_TABLE".hobby_cd = public."HOBBY".hobby_cd 
 	</select>
 	
-	<select id="UH_getIDhobbynmList" 
-	resultType="map">
-	SELECT public."UH_TABLE".id, public."HOBBY".hobby_nm
-	FROM public."UH_TABLE" 
-	INNER JOIN public."HOBBY"
-  	ON public."UH_TABLE".hobby_cd = public."HOBBY".hobby_cd
+	<select id="UH_getIDhobbynmList" parameterType="UHDto"
+	resultType="UHDto">
+	SELECT hobby_cd FROM public."UH_TABLE" where (id = #{id});
 	</select>
 	
 	<select id="UH_getNAMEhobbynmList" 

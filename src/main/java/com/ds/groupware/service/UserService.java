@@ -9,4 +9,6 @@ public interface UserService {
 	UserDto getView(String user_id);
 	int getTotalCnt(UserDto dto);
 	void insert(UserDto dto);
+	void aprv_y(String user_id);
+	void delete(String user_id);
 }

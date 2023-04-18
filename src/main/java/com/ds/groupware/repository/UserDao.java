@@ -9,4 +9,6 @@ public interface UserDao {
 	UserDto getView(String user_id);
 	int getTotalCnt(UserDto dto);
 	public void insert(UserDto dto);
+	public void aprv_y(String user_id);
+	public void delete(String user_id);
 }

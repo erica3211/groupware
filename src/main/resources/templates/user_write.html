@@ -8,15 +8,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-<form name="myform" id="myform" th:object="${UserDto}" method="post" th:action="@{/user/user_save}" >
+<form name="myform" id="myform">
 
 	
 		<!-- 메뉴 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="/myhome2/images/img_avatar1.png" alt="Avatar Logo"
-					style="width: 40px;" class="rounded-pill">
+				<a class="navbar-brand" href="#"> 
 				</a>
 
 				<button class="navbar-toggler" type="button"
@@ -43,8 +41,7 @@
 
 
 <div class="container mt-3">
-  <h3>Navbar With Dropdown</h3>
-  <p>This example adds a dropdown menu in the navbar.</p>
+  <h3>회원 등록하기</h3>
   
 
    <table class="table">
@@ -58,7 +55,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="아이디를 입력하세요" th:value="${UserDto.id}"
+			    placeholder="아이디를 입력하세요" 
 			    name="id" id="id">
 			 </div>
         </td>
@@ -68,7 +65,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="이름을 입력하세요" th:value="${UserDto.user_nm}"
+			    placeholder="이름을 입력하세요"
 			    name="user_nm" id="user_nm">
 			 </div>
         </td>
@@ -78,15 +75,15 @@
         <td>
         	 <div class="input-group">
 			    <input type="email" class="form-control" 
-			    placeholder="이메일을 입력하세요" th:value="${UserDto.user_eml_addr}"
+			    placeholder="이메일을 입력하세요" 
 			    name="user_eml_addr" id="user_eml_addr">
 			 </div>
         </td>
       </tr>
       <tr>
-        <th>부서번호</th>
+        <th>부서명</th>
         <td>
-        	 <select name="dept_nm" th:field="*{dept_no}">
+        	 <select name="dept_no">
     <option th:each="dept_nm_list : ${getDeptList}" 
         th:value="${dept_nm_list.dept_no}" th:text="${dept_nm_list.dept_nm}"></option>
 </select>
@@ -97,7 +94,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="tel" class="form-control" 
-			    placeholder="전화번호를 입력하세요" th:value="${UserDto.user_telno}"
+			    placeholder="전화번호를 입력하세요" 
 			    name="user_telno" id="user_telno">
 			 </div>
         </td>
@@ -107,7 +104,7 @@
         <td>
         	 <div class="input-group">
 			    <input type="text" class="form-control" 
-			    placeholder="주소를 입력하세요" th:value="${UserDto.user_addr}"
+			    placeholder="주소를 입력하세요" 
 			    name="user_addr" id="user_addr">
 			 </div>
         </td>
@@ -131,7 +128,7 @@
 
  <div class="container" style="text-align:right">
 	<!--<button type="button" class="btn btn-primary" onclick= "goSave()">등록</button>-->
-	<button type="submit" class="btn btn-primary" >등록</button>
+	<button type="button" class="btn btn-primary"onclick= "goSave()" >승인요청</button>
  </div>
 
   </form>
@@ -142,6 +139,7 @@ function goSave()
 	var frm = document.myform;
 	frm.action = "./user_save";
 	frm.submit();
+	alert("승인요청 완료");
 }
 
 </script>

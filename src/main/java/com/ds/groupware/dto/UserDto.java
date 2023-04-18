@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access=AccessLevel.PUBLIC)
-public class UserDto {
+public class UserDto extends BaseDto{
 	private String id="";    
 	private String user_nm="";
 	private String user_eml_addr="";    

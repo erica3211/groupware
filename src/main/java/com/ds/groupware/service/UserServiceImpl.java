@@ -34,5 +34,17 @@ public class UserServiceImpl implements UserService {
 	public UserDto getView(String user_id) {
 		return userDao.getView(user_id);
 	}
+
+	@Override
+	public void aprv_y(String user_id) {
+		userDao.aprv_y(user_id);
+		
+	}
+
+	@Override
+	public void delete(String user_id) {
+		userDao.delete(user_id);
+		
+	}
 	
 }

@@ -9,13 +9,11 @@
 
 </head>
 <body>
-<form name="myform" id="myform">
+<form name="searchform" id="searchform">
 		<!-- 메뉴 -->
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="/myhome2/images/img_avatar1.png" alt="Avatar Logo"
-					style="width: 40px;" class="rounded-pill">
+				<a class="navbar-brand" href="#"> 
 				</a>
 
 				<button class="navbar-toggler" type="button"
@@ -41,8 +39,7 @@
 		</nav>
 		
 		<div class="container mt-3">
-		<h3>Navbar With Dropdown</h3>
-		<p>This example adds a dropdown menu in the navbar.</p>
+		<h3>회원 목록 상세보기</h3>
 
 		<div class="input-group mt-3 mb-3">
 			<button type="button" class="btn btn-primary dropdown-toggle"
@@ -52,13 +49,15 @@
 				<li><a class="dropdown-item" href="#">Link 2</a></li>
 				<li><a class="dropdown-item" href="#">Link 3</a></li>
 			</ul>
-			<input type="text" class="form-control" placeholder="Username">
+			<input type="text" name="searchKey" class="form-control" placeholder="Username">
 			<div class="input-group-append">
-				<button class="btn btn-primary" type="button">GO</button>
+				<button class="btn btn-primary" type="button" onclick="goSearch()">GO</button>
 			</div>
 		</div>
-
-		<div style="border: 1px solid; float: left; width: 33%;">
+</form>
+<form name="myform" id="myform">
+	
+		<div style="border: 1px solid; float: left; width: 38%;">
 			<table class="table">
 				<colgroup>
 					<col width="20%">
@@ -73,7 +72,7 @@
 			 <th>이름</th>
 			 <th>부서명</th>
 			 <th>승인여부</th> 
-			 <th>+</th> 
+			 <th>상세보기</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -81,7 +80,8 @@
 				<td><span th:text="${userlist.id}"></span></td>
 				<td><span th:text="${userlist.user_nm}"></span></td>
 				<td><span th:text="${userlist.dept_nm}"></span></td>
-				<td><span th:text="${userlist.aprv_yn}"></span></td>
+				<td><span th:if="${userlist.aprv_yn == 'N'}">승인 요청</span>
+    			<span th:if="${userlist.aprv_yn == 'Y'}">승인</span></td>
 				<td><a href="user_view.html" th:text="상세보기" th:href="@{/user/user_view/{user_id}(user_id=${userlist.id})}"></a></td>
 			</tr>
 		</tbody>
@@ -92,4 +92,5 @@
 		
 	</form>	
 </body>
+
 </html>

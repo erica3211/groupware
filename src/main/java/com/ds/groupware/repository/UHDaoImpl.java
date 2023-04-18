@@ -28,6 +28,11 @@ public class UHDaoImpl implements UHDao{
 		sm.insert("UH_insert", uhdto);
 		
 	}
+
+	@Override
+	public List<UHDto> getList(String user_id) {
+		return sm.selectList("UH_getIDhobbynmList",user_id);
+	}
 	
 	
 }

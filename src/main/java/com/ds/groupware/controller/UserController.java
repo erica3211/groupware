@@ -43,22 +43,36 @@ public class UserController {
 		int total = userservice.getTotalCnt(dto);
 		model.addAttribute("getUserList", userlist);
 		model.addAttribute("getTotalCnt", total);
-		System.out.println(total);
+		System.out.println("데이터 총 개수 :"+total);
 		return "user_list";
 	}
 	@RequestMapping(value = "/user/user_view/{user_id}")
-	public String getView(@PathVariable String user_id,  UserDto dto, DeptDto deptdto, Model model) {
+	public String getView(@PathVariable String user_id,UHDto UHdto, UserDto dto,HobbyDto H_dto, DeptDto D_dto, Model model) {
 		UserDto userview = userservice.getView(user_id);
 		List<UserDto> userlist = userservice.getList(dto);
-		
+		List<DeptDto> deptlist = deptservice.getList(D_dto);
+		List<HobbyDto> hobbylist = hobbyservice.getList(H_dto);
+		List<UHDto> uhlist = uhservice.getList(user_id);
+		StringBuffer uh = new StringBuffer();
+		for (int i = 0; i < uhlist.size(); i++) {
+				uh.append(uhlist.get(i).getHobby_cd());
+				//System.out.println(uhlist.get(i).getHobby_cd());
+			if (i < uhlist.size()-1) {
+				uh.append(",");
+			}
+		}
+		System.out.println(uh);
+		model.addAttribute("getDeptList", deptlist);
 		model.addAttribute("getUserList", userlist);
+		model.addAttribute("getHobbyList", hobbylist);
 		model.addAttribute("getView", userview);
+		model.addAttribute("getUHlist", uh);
 		return "user_view";
 	}
 
 	// 등록 페이지로 이동
 	@RequestMapping(value = "/user/user_write")
-	String member_write(DeptDto D_dto, UHDto UHdto, HobbyDto H_dto, Model model) {
+	String user_write(DeptDto D_dto, UHDto UHdto, HobbyDto H_dto, Model model) {
 		List<DeptDto> deptlist = deptservice.getList(D_dto);
 		List<HobbyDto> hobbylist = hobbyservice.getList(H_dto);
 		//System.out.println(H_dto.getHobby_cd());
@@ -67,13 +81,14 @@ public class UserController {
 		model.addAttribute("UserDto", userdto);
 		model.addAttribute("UHDto", uhdto);
 		model.addAttribute("getDeptList", deptlist);
+		
 		model.addAttribute("getHobbyList", hobbylist);
 
 		return "user_write";
 	}
 
 	@RequestMapping(value = "/user/user_save")
-	String member_save(UserDto dto, UHDto uhdto) {
+	String user_save(UserDto dto, UHDto uhdto) {
 		System.out.println(dto.getId());
 		userservice.insert(dto);
 		
@@ -92,6 +107,17 @@ public class UserController {
 		}
 		return "redirect:/";
 	}
+		
+		@RequestMapping(value = "/user/user_update/{user_id}")
+		String user_aprv_y(@PathVariable String user_id) {
+			userservice.aprv_y(user_id);
+			return "redirect:/user/user_list";
+	}
+		@RequestMapping(value = "/user/user_delete/{user_id}")
+		String user_delete(@PathVariable String user_id) {
+			userservice.delete(user_id);
+			return "redirect:/user/user_list";
+		}
 
 	// 취미 데이터 가져오기
 	@RequestMapping(value = "/user/uhlist")

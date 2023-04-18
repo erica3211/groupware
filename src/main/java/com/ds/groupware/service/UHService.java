@@ -8,4 +8,5 @@ public interface UHService {
 	List<UHDto> getList(UHDto uhdto);
 	int getTotalCnt(UHDto uhdto);
 	void insert(UHDto uhdto);
+	List<UHDto> getList(String user_id);
 }

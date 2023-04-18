@@ -34,6 +34,18 @@ public class UserDaoImpl implements UserDao {
 	public UserDto getView(String user_id) {
 		return sm.selectOne("User_getView",user_id);
 	}
+
+	@Override
+	public void aprv_y(String user_id) {
+		sm.update("User_Aprv_Y",user_id);
+		
+	}
+
+	@Override
+	public void delete(String user_id) {
+		sm.delete("User_delete",user_id);
+		
+	}
 	
 
 
