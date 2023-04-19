@@ -49,7 +49,7 @@
 				<li><a class="dropdown-item" href="#">Link 2</a></li>
 				<li><a class="dropdown-item" href="#">Link 3</a></li>
 			</ul>
-			<input type="text" name="searchKey" class="form-control" placeholder="Username">
+			<input type="text" name="searchKey" th:value="${searchKey}"  class="form-control" placeholder="Username">
 			<div class="input-group-append">
 				<button class="btn btn-primary" type="button" onclick="goSearch()">GO</button>
 			</div>
@@ -92,5 +92,14 @@
 		
 	</form>	
 </body>
-
+<script th:inline="javascript">
+/*<![CDATA[*/
+function goSearch()
+{
+	var frm = document.searchform;
+	frm.action = '/user/user_list';
+	frm.submit();
+}
+/*]]>*/
+</script>
 </html>

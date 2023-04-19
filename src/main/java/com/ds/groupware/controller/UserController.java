@@ -44,8 +44,11 @@ public class UserController {
 		model.addAttribute("getUserList", userlist);
 		model.addAttribute("getTotalCnt", total);
 		System.out.println("데이터 총 개수 :"+total);
+		System.out.println("list");
+		model.addAttribute("searchKey",dto.getSearchKey());
 		return "user_list";
 	}
+
 	@RequestMapping(value = "/user/user_view/{user_id}")
 	public String getView(@PathVariable String user_id,UHDto UHdto, UserDto dto,HobbyDto H_dto, DeptDto D_dto, Model model) {
 		UserDto userview = userservice.getView(user_id);

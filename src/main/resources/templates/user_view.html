@@ -49,12 +49,12 @@
 				<li><a class="dropdown-item" href="#">Link 2</a></li>
 				<li><a class="dropdown-item" href="#">Link 3</a></li>
 			</ul>
-			<input type="text" name="searchKey" class="form-control" placeholder="Username">
+			<input type="text" name="searchKey" th:value="${searchKey}" class="form-control" placeholder="Username">
 			<div class="input-group-append">
-				<button class="btn btn-primary" type="button" onclick="goSearch()">GO</button>
+				<button class="btn btn-primary" type="button" th:onclick="goSearch()">GO</button>
 			</div>
 		</div>
-</form>
+  </form>
 <form name="myform" id="myform">		
 
 		<div style="border: 1px solid; float: left; width: 38%;">
@@ -77,7 +77,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="userlist : ${getUserList}">
-				<td><span th:text="${userlist.id}" name="searchKey"></span></td>
+				<td><span th:text="${userlist.id}" name="searchKey" id="searchKey"></span></td>
 				<td><span th:text="${userlist.user_nm}"></span></td>
 				<td><span th:text="${userlist.dept_nm}"></span></td>
 				<td><span th:if="${userlist.aprv_yn == 'N'}">승인 요청</span>
@@ -92,6 +92,7 @@
 			<br>
 		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상세정보</h2>
   <br>
+
 <div style="border: 1px ; float: right; width: 58%;">
    <table class="table">
    	<colgroup>
@@ -194,9 +195,8 @@ function goDelete()
 }
 function goSearch()
 {
-	var frm = document.myform;
-	const userid = /*[[${getView.id}]]*/;
-	frm.action = '/user/user_view/'+userid;
+	var frm = document.searchform;
+	frm.action = '/user/user_list';
 	frm.submit();
 }
 /*]]>*/
