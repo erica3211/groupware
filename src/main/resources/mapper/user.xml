@@ -45,5 +45,10 @@
 	DELETE FROM public."USER"
 	WHERE id = #{id}
 	</select>
+	<select id="User_idcheck" parameterType="UserDto"
+	resultType="UserDto">
+	SELECT count(*) FROM public."USER" 
+	WHERE id= #{id}
+	</select>
 	
 </mapper>

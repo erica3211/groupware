@@ -11,4 +11,5 @@ public interface UserDao {
 	public void insert(UserDto dto);
 	public void aprv_y(String user_id);
 	public void delete(String user_id);
+	int getIdCheck(UserDto dto);
 }

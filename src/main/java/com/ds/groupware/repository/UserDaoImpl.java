@@ -46,6 +46,11 @@ public class UserDaoImpl implements UserDao {
 		sm.delete("User_delete",user_id);
 		
 	}
+
+	@Override
+	public int getIdCheck(UserDto dto) {
+		return sm.selectOne("User_idcheck",dto);
+	}
 	
 
 

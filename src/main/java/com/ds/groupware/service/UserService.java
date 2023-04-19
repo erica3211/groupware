@@ -11,4 +11,5 @@ public interface UserService {
 	void insert(UserDto dto);
 	void aprv_y(String user_id);
 	void delete(String user_id);
+	int getIdCheck(UserDto dto);
 }
