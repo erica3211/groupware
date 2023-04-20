@@ -38,7 +38,7 @@
 		</nav>
 
 
-<form name="myformcheck" id="myformcheck" method="post"  th:action="@{/user/user_idcheck}">
+<form name="myformcheck" id="myformcheck">
 <div class="container mt-3">
   <h3>회원 등록하기</h3>
   
@@ -53,7 +53,7 @@
         <th>아이디</th>
         <td>
         	 <div class="input-group">
-			    <input type="text" class="form-control" placeholder="아이디를 입력하세요" id="user_id_checked" name="user_id_checked" required>
+			    <input type="text" class="form-control" placeholder="아이디를 입력하세요" id="id_checked" name="id_checked" required>
 			 </div>
 			 </td>
       <td><button type="button" id="idcheck" class="btn btn-dark">아이디 체크</button></td>
@@ -62,7 +62,7 @@
     </table>
 </form>
 <form name="myform" id="myform" method="post" th:action="@{/user/user_save}">
-<input type="hidden" class="form-control" id="user_id" name="user_id">		 
+<input type="hidden" class="form-control" id="id" name="id">		 
   <table class="table">
    	<colgroup>
    		<col width="30%">
@@ -136,7 +136,6 @@
 
 
  <div class="container" style="text-align:right">
-	<!--<button type="button" class="btn btn-primary" onclick= "goSave()">등록</button>-->
 	<button type="submit" class="btn btn-dark">승인요청</button>
  </div>
 
@@ -145,7 +144,7 @@
 <script type="text/javascript">
 $(()=>{
 	$("#idcheck").click(()=>{
-		let data = {user_id:$("#user_id_checked").val()}
+		let data = {id:$("#id_checked").val()}
 		$.ajax(({
 			url:"/user/idcheck",
 			data:data,
@@ -153,10 +152,10 @@ $(()=>{
 		}))
 		.done((res)=>{
 			if(res.result==0){
-				let user_id_fin = $("#user_id_checked").val();
+				let id_fin = $("#id_checked").val();
 				alert("사용 가능한 아이디입니다.");
-				$("#user_id_checked").prop("readOnly", true);
-				$("#user_id").attr('value', user_id_fin);
+				$("#id_checked").prop("readOnly", true);
+				$("#id").attr('value', id_fin);
 			} else{
 				alert("이미 사용 중인 아이디입니다.");
 			}

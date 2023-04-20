@@ -88,6 +88,7 @@ public class UserController {
 	@RequestMapping(value = "/user/idcheck")
 	HashMap<String, Object> idcheck(UserDto dto) {
 		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(userservice.getIdCheck(dto));
 		map.put("result",userservice.getIdCheck(dto));
 		return map;
 	}

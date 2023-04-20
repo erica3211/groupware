@@ -46,7 +46,7 @@
 	WHERE id = #{id}
 	</select>
 	<select id="User_idcheck" parameterType="UserDto"
-	resultType="UserDto">
+	resultType="Integer">
 	SELECT count(*) FROM public."USER" 
 	WHERE id= #{id}
 	</select>

@@ -73,12 +73,14 @@ public class AdminController {
 	@RequestMapping(value = "/user_update/{user_id}")
 	String user_aprv_y(@PathVariable String user_id) {
 		userservice.aprv_y(user_id);
+		System.out.println("등록완료");
 		return "redirect:/admin";
 	}
 
 	@RequestMapping(value = "/user_delete/{user_id}")
 	String user_delete(@PathVariable String user_id) {
 		userservice.delete(user_id);
+		System.out.println("삭제완료");
 		return "redirect:/admin";
 	}
 
