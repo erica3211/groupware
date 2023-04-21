@@ -18,7 +18,7 @@ import com.ds.groupware.service.HobbyService;
 import com.ds.groupware.service.UHService;
 import com.ds.groupware.service.UserService;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 //@RestController //json형식으로 가져옴
 @Controller

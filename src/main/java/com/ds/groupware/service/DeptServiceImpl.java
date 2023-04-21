@@ -2,12 +2,14 @@ package com.ds.groupware.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ds.groupware.dto.DeptDto;
 import com.ds.groupware.repository.DeptDao;
 
-import jakarta.annotation.Resource;
+
 
 @Service("deptService")
 public class DeptServiceImpl implements DeptService {

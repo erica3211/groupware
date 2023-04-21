@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.groupware.dto.UserDto;
 import com.ds.groupware.repository.UserDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {

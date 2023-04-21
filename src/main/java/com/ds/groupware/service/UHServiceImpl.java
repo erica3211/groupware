@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ds.groupware.dto.UHDto;
 import com.ds.groupware.repository.UHDao;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Service("uhService")
 public class UHServiceImpl implements UHService{

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ds.groupware.service.UHService;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 
 @Controller 
 public class HomeController {

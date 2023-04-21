@@ -16,7 +16,9 @@ import com.ds.groupware.service.HobbyService;
 import com.ds.groupware.service.UHService;
 import com.ds.groupware.service.UserService;
 
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
+
+
 
 @Controller
 public class AdminController {
