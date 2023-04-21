@@ -1,12 +1,9 @@
 package com.ds.groupware.dto;
 
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+
 @NoArgsConstructor(access=AccessLevel.PUBLIC)
 public class DeptDto {
 	private String dept_no="";    
@@ -14,12 +11,6 @@ public class DeptDto {
 	private String depth="";
 
 	
-	public DeptDto(String dept_no, String dept_nm, String depth) {
-		super();
-		this.dept_no = dept_no;
-		this.dept_nm = dept_nm;
-		this.depth = depth;
-	}
 	public String getDept_no() {
 		return dept_no;
 	}

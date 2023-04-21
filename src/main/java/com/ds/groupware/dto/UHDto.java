@@ -1,12 +1,9 @@
 package com.ds.groupware.dto;
 
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+
 @NoArgsConstructor(access=AccessLevel.PUBLIC)
 public class UHDto {
 	private String id="";    

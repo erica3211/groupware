@@ -29,8 +29,10 @@ public class AdminController {
 	@Resource(name = "uhService")
 	UHService uhservice;
 
+	// 관리자 기본화면
 	@RequestMapping(value = "/admin")
 	public String getList(UserDto dto, DeptDto deptdto, Model model) {
+		
 		List<UserDto> userlist = userservice.getList(dto);
 		int total = userservice.getTotalCnt(dto);
 		model.addAttribute("getUserList", userlist);
@@ -41,6 +43,7 @@ public class AdminController {
 		return "admin";
 	}
 
+	//사용자 상세화면
 	@RequestMapping(value = "/admin/{user_id}")
 	public String getView(@PathVariable String user_id, UHDto UHdto, UserDto dto, HobbyDto H_dto, DeptDto D_dto,
 			Model model) {
@@ -70,6 +73,7 @@ public class AdminController {
 		return "admin";
 	}
 
+	// 회원 등록 (승인요청 -> 승인)
 	@RequestMapping(value = "/user_update/{user_id}")
 	String user_aprv_y(@PathVariable String user_id) {
 		userservice.aprv_y(user_id);
@@ -77,6 +81,7 @@ public class AdminController {
 		return "redirect:/admin";
 	}
 
+	// 회원 삭제
 	@RequestMapping(value = "/user_delete/{user_id}")
 	String user_delete(@PathVariable String user_id) {
 		userservice.delete(user_id);

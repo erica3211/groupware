@@ -6,8 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @NoArgsConstructor(access=AccessLevel.PUBLIC)
 public class UserDto extends BaseDto{
 	private String id="";    
@@ -15,6 +14,9 @@ public class UserDto extends BaseDto{
 	private String user_eml_addr="";    
 	private String dept_no="";    
 	private String dept_nm="";  
+	private String user_telno="";    
+	private String user_addr="";    
+	private String aprv_yn="";
 	
 	
 	public String getDept_nm() {
@@ -24,13 +26,7 @@ public class UserDto extends BaseDto{
 
 	public void setDept_nm(String dept_nm) {
 		this.dept_nm = dept_nm;
-	}
-
-
-	private String user_telno="";    
-	private String user_addr="";    
-	private String aprv_yn="";
-	
+	}	
 
 	public String getId() {
 		return id;

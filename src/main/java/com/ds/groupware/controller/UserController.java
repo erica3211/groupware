@@ -1,20 +1,14 @@
 
 package com.ds.groupware.controller;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import com.ds.groupware.dto.DeptDto;
 import com.ds.groupware.dto.HobbyDto;
 import com.ds.groupware.dto.UHDto;
@@ -58,6 +52,7 @@ public class UserController {
 		return "user_write";
 	}
 
+	// 회원 정보 저장
 	@RequestMapping(value = "/user/user_save")
 	String user_save(UserDto dto, UHDto uhdto) {
 		System.out.println(dto.getId());
@@ -84,6 +79,7 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	// 아이디 확인
 	@ResponseBody
 	@RequestMapping(value = "/user/idcheck")
 	HashMap<String, Object> idcheck(UserDto dto) {
