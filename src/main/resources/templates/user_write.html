@@ -39,7 +39,6 @@
 
 
 <form name="myformcheck" id="myformcheck">
-	<input type="hidden" class="form-control" value="N" name="iduncheck" id="iduncheck">		
 <div class="container mt-3">
   <h3>회원 등록하기</h3>
   
@@ -64,6 +63,7 @@
 </form>
 <form name="myform" id="myform" method="post" th:action="@{/user/user_save}">
 <input type="hidden" class="form-control" id="id" name="id">		 
+	<input type="hidden" class="form-control" value="N" name="iduncheck" id="iduncheck">		
   <table class="table">
    	<colgroup>
    		<col width="30%">
@@ -137,19 +137,20 @@
 
 
  <div class="container" style="text-align:right">
-	<button type="submit" class="btn btn-dark">승인요청</button>
+	<button type="submit" class="btn btn-dark" id="btnSave">승인요청</button>
  </div>
 
   </form>
 </body>
 <script type="text/javascript">
-
 $(()=>{
 	$("#idcheck").click(()=>{
 		if($("#id_checked").val()=="" || $("#id_checked").val()==null){
-			alert("아이디를 입력하세요.");
+			alert("아이디를 입력하세요");
 			return;
 		} 
+		console.log("iduncheck : "+$("#iduncheck").val());
+
 		let data = {id:$("#id_checked").val()}
 		$.ajax(({
 			url:"/user/idcheck",
@@ -166,15 +167,21 @@ $(()=>{
 			} else{
 				alert("이미 사용 중인 아이디입니다.");
 			}
-			if ($("#iduncheck").val()=="N") {
-				alert("아이디 중복체크를 하세요");
-				$("#id_checked").focus();
-			}
 		})
 		.fail((res, error, status)=>{
 			console.log(error)
 		})
 	})
+	$("#btnSave").click(()=>{
+		if( $("#iduncheck").val()=="N")
+			{
+				alert("아이디 중복체크를 하세요");
+				$("idcheck").focus();
+				return;
+			}
+	})
+	
+	
 })
 </script>
 </html>

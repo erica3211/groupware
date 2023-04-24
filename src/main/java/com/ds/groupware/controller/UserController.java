@@ -55,6 +55,10 @@ public class UserController {
 	// 회원 정보 저장
 	@RequestMapping(value = "/user/user_save")
 	String user_save(UserDto dto, UHDto uhdto) {
+		System.out.println(dto.getIduncheck());
+		if (dto.getIduncheck().equals("N")) {
+			return "redirect:/user/user_write";
+		}
 		System.out.println(dto.getId());
 		userservice.insert(dto);
 		if(uhdto.getHobby_cd().equals("")) {
