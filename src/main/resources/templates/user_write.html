@@ -39,6 +39,7 @@
 
 
 <form name="myformcheck" id="myformcheck">
+	<input type="hidden" class="form-control" value="N" name="iduncheck" id="iduncheck">		
 <div class="container mt-3">
   <h3>회원 등록하기</h3>
   
@@ -142,8 +143,13 @@
   </form>
 </body>
 <script type="text/javascript">
+
 $(()=>{
 	$("#idcheck").click(()=>{
+		if($("#id_checked").val()=="" || $("#id_checked").val()==null){
+			alert("아이디를 입력하세요.");
+			return;
+		} 
 		let data = {id:$("#id_checked").val()}
 		$.ajax(({
 			url:"/user/idcheck",
@@ -156,8 +162,13 @@ $(()=>{
 				alert("사용 가능한 아이디입니다.");
 				$("#id_checked").prop("readOnly", true);
 				$("#id").attr('value', id_fin);
+				$("#iduncheck").attr('value', "Y");
 			} else{
 				alert("이미 사용 중인 아이디입니다.");
+			}
+			if ($("#iduncheck").val()=="N") {
+				alert("아이디 중복체크를 하세요");
+				$("#id_checked").focus();
 			}
 		})
 		.fail((res, error, status)=>{
