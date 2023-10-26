@@ -157,6 +157,8 @@
 |6|	사용자주소|	USER_ADDR|	VARCHAR|	200|	NULL|				
 |7|	승인여부|	APRV_YN|	CHAR|	1|	NOT NULL|						
 
+<br>
+
 **테이블 논리명 : 취미코드**
 
 **테이블 물리명 : HOBBY**
@@ -165,6 +167,8 @@
 |---|------|------|-----|---|---|---|---|-----|------|
 |1|	취미명|	HOBBY_NM|	VARCHAR|	20|	NULL|				
 |2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V|	V|	UH_TABLE|	HOBBY_CD|
+
+<br>
 
 **테이블 논리명 : 회원 취미 테이블**
 
@@ -175,6 +179,8 @@
 |1|	사용자 아이디|	USER_ID|	VARCHAR|	20|	NULL	|	
 |2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V	| |
 
+
+<br>
 
 **테이블 논리명 : 부서데이터**
 
