@@ -110,7 +110,34 @@
 ![Untitled (14)](https://github.com/erica3211/groupware/assets/75732953/fc29a395-8d58-48a3-b9a5-10038b7678c0)
 
 
+## 코드 내용
+### java/com/ds/groupware
+- controller
+    - AdminController : 관리자 화면
+    - HomeController : 홈 화면
+    - UserController : 회원 등록 화면
+- dto
+    - BaseDto : 검색 기능
+    - DeptDto : 부서 데이터
+    - HobbyDto : 취미 데이터
+    - UHDto : 회원 취미 데이터 -> 회원 DB와 Hobby DB를 연결
+    - UserDto : 회원 데이터
+- repository
+    - DeptDao/DeptDaoImpl : 부서 데이터를 이용하여 사용할 기능 정의
+    - HobbyDao/HobbyDaoImpl : 취미 데이터를 이용하여 사용할 기능 정의
+    - UHDao/UHDaoImpl : 회원 취미 데이터를 이용하여 사용할 기능 정의
+    - UserDao/UserDaoImpl : 회원 데이터를 이용하여 사용할 기능 정의
 
+### resources
+- mapper (SQL 문법)
+    - dept.xml : 부서 DB
+    - hobby.xml : 취미 DB
+    - uh.xml : 회원 취미 DB
+    - user.xml : 회원 DB
+- templates
+    - application.yml : 어플리케이션을 실행하기 위해 필요한 설정 값 (개인마다 다 다름)
+    - mybatis-config.xml : mybatis에서 사용될 DB를 연동하기 위한 설정 값
 
-
+### build.gradle
+필요한 기능 다운
 
