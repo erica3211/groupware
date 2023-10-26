@@ -139,5 +139,48 @@
     - mybatis-config.xml : mybatis에서 사용될 DB를 연동하기 위한 설정 값
 
 ### build.gradle
-필요한 기능 다운
+스프링부트 필요한 기능 다운
 
+## DB 설계
+
+**테이블 논리명 : 사용자**
+
+**테이블 물리명 : USER**
+
+|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|참조테이블|참조 컬럼|
+|---|------|------|-----|---|---|---|---|-----|------|
+|1|아이디|ID|VARCHAR|20|NOT NULL|V|V|HOBBY_DATA|USER_ID|
+|2|	사용자명|	USER_NM|	VARCHAR|	20|	NOT NULL|				
+|3|	사용자이메일주소|	USER_EML_ADDR|	VARCHAR|	40|	NOT NULL|				
+|4|	부서번호|	DEPT_NO|	NUMERIC|	5|	NULL|		|V|	DEPT|	DEPT_NO|
+|5|	사용자전화번호|	USER_TELNO|	VARCHAR|	11|	NULL|				
+|6|	사용자주소|	USER_ADDR|	VARCHAR|	200|	NULL|				
+|7|	승인여부|	APRV_YN|	CHAR|	1|	NOT NULL|						
+
+**테이블 논리명 : 취미코드**
+
+**테이블 물리명 : HOBBY**
+
+|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|참조테이블|참조 컬럼|
+|---|------|------|-----|---|---|---|---|-----|------|
+|1|	취미명|	HOBBY_NM|	VARCHAR|	20|	NULL|				
+|2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V|	V|	UH_TABLE|	HOBBY_CD|
+
+**테이블 논리명 : 회원 취미 테이블**
+
+**테이블 물리명 : UH_TABLE**
+
+|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|
+|---|------|------|-----|---|---|---|---|
+|1|	사용자 아이디|	USER_ID|	VARCHAR|	20|	NULL	|	
+|2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V	| |
+
+
+**테이블 논리명 : 부서데이터**
+
+**테이블 물리명 : DEPT**
+
+|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|
+|---|------|------|-----|---|---|---|---|
+|1|	부서번호|	DEPT_NO|	NUMERIC|	5|	NULL|	V	| | 
+|2|	부서명	|DEPT_NM	|VARCHAR|	20|	NULL		|
