@@ -161,7 +161,6 @@
 **상세보기 클릭**
 <br>
 <img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/4a5c8279-4df0-46b8-adc8-f0cc51bfa597">
-
 <img width="300" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/be0ed9a7-4098-4a27-b129-f34bc9c1cddc">
 
 
@@ -176,7 +175,10 @@
 
 **아이디 검색** <br>
 아이디에 1이 포함된 아이디 검색 <br>
-<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/60984afa-e937-4c1d-ade4-ebdb44ff2bfb">
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/2313e944-0978-481b-aeab-e9ebde1ae8d4">
+<img width="300" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/69933071-30bc-4af2-a5ce-f0bd2412596a">
+
+
 <br>
 **상세보기 클릭** <br>
 <img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/402bee26-50bc-4b68-be50-6aaaf56a7f7b">
