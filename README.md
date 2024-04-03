@@ -180,6 +180,7 @@
 
 
 <br>
+
 **상세보기 클릭** <br>
 <img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/402bee26-50bc-4b68-be50-6aaaf56a7f7b">
 
