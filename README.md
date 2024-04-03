@@ -1,5 +1,5 @@
 # groupware
-<br>
+<br><br>
 
 
 ### Spring 기반 개발 및 CICD 실습
@@ -7,7 +7,7 @@
 ### 그룹웨어의 사용자 및 관리자 포털 화면 개발
 
 
-<br>
+<br><br>
 
 ### **실습 목표**
 
@@ -15,6 +15,7 @@
 - DBMS의 특성을 이해하고 데이터 요소간의 관계를 파악하여 Database를 설계한다.
 - 로컬 환경과 개발/운영 환경의 차이를 이해하고 최종 산출물(개발 소스)을 형상관리 및 배포 (CI/CD)를 수행한다.
 
+<br>
 <br>
 
 ### 사용 기술 스택
@@ -35,6 +36,8 @@
 - Jenkins
 
   <br>
+  <br>
+  
 ### 사전 작업
 **개발 진행 전 사전 작업**
 1. STS 설치 <https://spring.io>
@@ -48,67 +51,15 @@
 1. 배포할 대상 서버 준비 (GCP에 VM 생성)
 2. Github 사용 시 계정 준비, Gitlab 사용 시 Docker 사용하여 설치 진행
 3. Docker를 사용하여 Jenkins 설치
-
+   
+<br>
 <br>
 
-## 결과
-
-
-### 홈화면
-![Untitled](https://github.com/erica3211/groupware/assets/75732953/406d062f-2933-49ad-8ffb-f7eef4e8f022)
+## ERD CLOUD
+<img width="1000" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/405d960a-86ec-4c49-b0b8-2a9ed9ea2514">
 
 <br>
-
-### 관리자 페이지
-![Untitled (1)](https://github.com/erica3211/groupware/assets/75732953/3728e735-baf8-4b8a-b63b-c49eca2f7db8)
-
-**상세보기**
-![Untitled (2)](https://github.com/erica3211/groupware/assets/75732953/b9674259-8142-4426-9911-732a6b211197)
-
-**검색에서 user1을 검색하면 user1이 포함된 아이디 뜸**
-![Untitled (3)](https://github.com/erica3211/groupware/assets/75732953/b6b706ec-b561-48a1-b355-680a5b618ba8)
-
-**등록버튼 누르면**
-![Untitled (4)](https://github.com/erica3211/groupware/assets/75732953/fc0cb6e1-0999-41a6-867c-899e532611e4)
-
-**등록 완료**
-![Untitled (5)](https://github.com/erica3211/groupware/assets/75732953/df9211f7-aaed-430f-86b8-ba72e0f83f14)
-
-**삭제 버튼 누르면 사라짐**
-![Untitled (6)](https://github.com/erica3211/groupware/assets/75732953/3e160172-4b9a-40ae-b4ea-ea75cff81c15)
-
-**결과**
-![Untitled (7)](https://github.com/erica3211/groupware/assets/75732953/fca994ca-70ee-48b6-b460-0bd7d02e97ac)
-
 <br>
-
-### 회원 등록 페이지
-![Untitled (8)](https://github.com/erica3211/groupware/assets/75732953/c85c3917-ea26-4fb1-8611-9864f853df6d)
-
-**이미 있는 아이디면 아이디 체크 했을 때 이미 사용 중인 아이디입니다. 라고 alert 창이 뜸**
-![Untitled (9)](https://github.com/erica3211/groupware/assets/75732953/e6610c43-6ec0-4cd7-9a18-aeefcd18f077)
-
-**사용 가능하면 사용가능한 아이디입니다. 라고 뜸. 그리고 아이디 변경 못하게 고정됨**
-![Untitled (10)](https://github.com/erica3211/groupware/assets/75732953/4d40ede0-8c48-40e1-a58c-bc783b48f5de)
-
-**빈칸을 냅둔 채로 승인요청 버튼 누르면 빈칸 입력하라고 뜸 (주소, 취미 제외)**
-
-
-**취미는 선택 안하고 승인요청 누르면 취미없음으로 자동으로 등록됨**
-
-
-**그리고 취미없음이랑 다른 거랑 같이 체크하면 취미 없음 하나로만 등록 됨. 그 외는 복수로 선택 가능**
-![Untitled (11)](https://github.com/erica3211/groupware/assets/75732953/8cf3f3af-96ad-4544-899f-461868be0a0f)
-
-**아이디 중복체크 안하고 승인요청 누르면 중복체크 하라고 alert 뜸**
-![Untitled (12)](https://github.com/erica3211/groupware/assets/75732953/97414d9a-41bb-4da1-9f80-562471b77d9b)
-
-**다 작성하고 승인요청 누르면 홈페이지로 넘어감**
-![Untitled (13)](https://github.com/erica3211/groupware/assets/75732953/9eaab94e-283f-4428-9f0b-27e2fbca594c)
-
-**관리자 페이지에서 확인하면 추가 되어 있고 승인여부는 승인요청으로 됨**
-![Untitled (14)](https://github.com/erica3211/groupware/assets/75732953/fc29a395-8d58-48a3-b9a5-10038b7678c0)
-
 
 ## 코드 내용
 ### java/com/ds/groupware
@@ -141,52 +92,93 @@
 ### build.gradle
 스프링부트 필요한 기능 다운
 
-## DB 설계
+<br>
+<br>
 
-**테이블 논리명 : 사용자**
 
-**테이블 물리명 : USER**
-
-|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|참조테이블|참조 컬럼|
-|---|------|------|-----|---|---|---|---|-----|------|
-|1|아이디|ID|VARCHAR|20|NOT NULL|V|V|HOBBY_DATA|USER_ID|
-|2|	사용자명|	USER_NM|	VARCHAR|	20|	NOT NULL|				
-|3|	사용자이메일주소|	USER_EML_ADDR|	VARCHAR|	40|	NOT NULL|				
-|4|	부서번호|	DEPT_NO|	NUMERIC|	5|	NULL|		|V|	DEPT|	DEPT_NO|
-|5|	사용자전화번호|	USER_TELNO|	VARCHAR|	11|	NULL|				
-|6|	사용자주소|	USER_ADDR|	VARCHAR|	200|	NULL|				
-|7|	승인여부|	APRV_YN|	CHAR|	1|	NOT NULL|						
+## 결과
 
 <br>
 
-**테이블 논리명 : 취미코드**
+### 홈화면
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/91ade82c-baba-4a44-8a8b-da759a66e50c">
 
-**테이블 물리명 : HOBBY**
 
-|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|참조테이블|참조 컬럼|
-|---|------|------|-----|---|---|---|---|-----|------|
-|1|	취미명|	HOBBY_NM|	VARCHAR|	20|	NULL|				
-|2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V|	V|	UH_TABLE|	HOBBY_CD|
-
-<br>
-
-**테이블 논리명 : 회원 취미 테이블**
-
-**테이블 물리명 : UH_TABLE**
-
-|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|
-|---|------|------|-----|---|---|---|---|
-|1|	사용자 아이디|	USER_ID|	VARCHAR|	20|	NULL	|	
-|2|	취미코드명|	HOBBY_CD|	VARCHAR|	20|	NULL|	V	| |
 
 
 <br>
 
-**테이블 논리명 : 부서데이터**
+### 회원등록 페이지
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/b9d16489-c7ba-4fe0-80b8-c4fb5fafcce1">
+<img width="300" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/04a6bbb6-a556-4725-81a6-be15dc4813b1">
 
-**테이블 물리명 : DEPT**
+<br>
+<br>
 
-|NO|컬럼 논리명|컬럼 물리명|데이터 타입|길이|NULL 여부|PK|FK|
-|---|------|------|-----|---|---|---|---|
-|1|	부서번호|	DEPT_NO|	NUMERIC|	5|	NULL|	V	| | 
-|2|	부서명	|DEPT_NM	|VARCHAR|	20|	NULL		|
+**아이디 중복일 경우**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/31c3bfa5-4b6a-4af1-9381-c9259d7662aa">
+
+<br>
+
+**아이디 중복이 아닐 경우**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/d535fce8-2378-48dc-87dd-1fb26472359a">
+
+
+<br>
+
+**부서 선택**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/1eca6381-1a3b-4cb5-88cb-a6b4a5c64ac7">
+
+<br>
+
+**취미 선택 (중복 가능. 만약 취미 체크 안한 상태로 승인요청 버튼 클릭하면 기타로 체크됨)**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/e5cca47c-eb39-47de-a83e-dbf1412c7bd0">
+
+<br>
+
+**승인요청 버튼 클릭하면 자동으로 홈화면으로 이동**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/22ad6afd-29d3-40f5-8350-24903925935c">
+
+
+<br>
+<br>
+
+### 관리자 페이지
+<br>
+
+
+**관리자 페이지**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/9ebb3e9e-325d-48ec-884b-e4b5bb708b6f">
+
+<br>
+
+**상세보기 클릭**
+<br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/4a5c8279-4df0-46b8-adc8-f0cc51bfa597">
+
+<img width="300" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/be0ed9a7-4098-4a27-b129-f34bc9c1cddc">
+
+
+
+<br>
+
+**등록버튼 누르면 승인요청에서 승인으로 변경** <br>
+승인요청 우선으로 정렬, 알파벳순으로 정렬 <br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/2c1e28c5-7230-4599-bae2-2639fbfe9d35">
+<br>
+
+
+**아이디 검색** <br>
+아이디에 1이 포함된 아이디 검색 <br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/60984afa-e937-4c1d-ade4-ebdb44ff2bfb">
+<br>
+**상세보기 클릭** <br>
+<img width="700" alt="image" src="https://github.com/erica3211/groupware/assets/75732953/402bee26-50bc-4b68-be50-6aaaf56a7f7b">
+
+
